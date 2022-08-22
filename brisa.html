@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brisa</title>
+</head>
+
+<body>
+    <style>
+        p {
+            font-family: 'Poppins', sans-serif;
+            align-self: center;
+            position: relative;
+            right: 0px;
+            font-size: 40px;
+            -webkit-text-stroke: 1px rgb(20, 36, 105);
+            color: transparent;
+            width: 100%;
+            top: 20px
+        }
+
+        .texto::before {
+            content: attr(data-texto);
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #513CE5;
+            -webkit-text-stroke: 3px #513CE5;
+            width: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid #513CE5;
+            animation: text-fill 2s ease-in-out alternate infinite;
+        }
+
+        @keyframes text-fill {
+            100% {
+                width: 100%;
+            }
+        }
+
+        .back {
+            position: fixed;
+            padding: 0;
+            margin: 0;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            animation-name: backdiv;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+        }
+
+        .heart {
+            position: absolute;
+            margin: auto;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgb(218, 24, 24);
+            height: 50px;
+            width: 50px;
+            transform: rotate(-45deg);
+            animation: beat 1s linear alternate infinite;
+        }
+
+        .heart:after {
+            background-color: rgb(218, 24, 24);
+            content: "";
+            border-radius: 50%;
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            top: 0px;
+            left: 25px;
+        }
+
+        .heart:before {
+            background-color: rgb(218, 24, 24);
+            content: "";
+            border-radius: 50%;
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            top: -25px;
+            left: 0px;
+        }
+
+        @keyframes backdiv {
+            50% {
+                background: #ffe6f2;
+            }
+        }
+
+        @keyframes beat {
+            0% {
+                transform: scale(2) rotate(-45deg);
+            }
+
+            50% {
+                transform: scale(0.6) rotate(-45deg);
+            }
+        }
+    </style>
+
+    <div class="back"></div>
+    <div class="heart"></div>
+    <p class="texto" data-texto="Te quiero Brisa">Te quiero Brisa</p>
+</body>
+
+</html>
